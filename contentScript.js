@@ -52,7 +52,7 @@ function extractDates(element) {
 }
 
 function calculateGapOrOverlap(previous, current) {
-    const gapInMonths = (current.startDate.getFullYear() - previous.endDate.getFullYear()) * 12 + current.startDate.getMonth() - previous.endDate.getMonth();
+    const gapInMonths = (current.startDate.getFullYear() - previous.endDate.getFullYear()) * 12 + current.startDate.getMonth() - previous.endDate.getMonth() - 1;
     if (gapInMonths > 0) {
         return `Gap of ${gapInMonths} month${gapInMonths > 1 ? 's' : ''}`;
     } else if (gapInMonths < 0) {
