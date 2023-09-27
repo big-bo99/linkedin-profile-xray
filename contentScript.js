@@ -5,10 +5,10 @@ function extractDates(element) {
 
     let [logo, details] = position.children; // We do not even need logo for now
 
-    // TODO Support work experience with multiple inner entries
 
     let position_details_list = details.children
     let position_summary_details = position_details_list[0]
+    let position_summary_text = position_details_list[1]
     let outer_positions = position_summary_details.children[0].children
 
     if (outer_positions.length == 4) {
@@ -19,6 +19,14 @@ function extractDates(element) {
         } else {
             dateElement = outer_positions[1].getElementsByTagName('span')[0];
         }
+    }
+
+    // If experience has multiple inner entries, get date ranges of the last entry
+    if (position_summary_text && position_summary_text.querySelector('.pvs-list').querySelector('.pvs-list').children.length > 1) {
+        last_inner_experience = position_summary_text.querySelector('.pvs-list').children[0]
+        last_inner_experience_details = last_inner_experience.getElementsByTagName("a")[0].children
+        // Override dateElement
+        dateElement = last_inner_experience_details[1]
     }
 
     if (!dateElement) {
