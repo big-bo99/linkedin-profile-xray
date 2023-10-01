@@ -7,4 +7,4 @@ Many recruiters around the world spend all day every day reviewing LinkedIn prof
 ### Key features
 
 1. Gap/overlap between work experiences
-   -  Spot gaps in a person’s work experiences
+   -  Spot gaps in a person’s work experiences.
